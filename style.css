@@ -537,65 +537,27 @@ header {
     margin-right: 8px;
     font-size: 14px;
 }
-/* تنسيقات الموبايل - الشاشات اللي أصغر من 768px */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column; /* بيخلي العناصر تحت بعض بدل جنب بعض */
-        padding: 10px;
-        height: auto; /* عشان الـ div ياخد مساحة العناصر اللي جواه */
-    }
 
-    .nav-links {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        gap: 15px; /* مسافة بين اللينكات عشان ما يلزقوش في بعض */
-        margin-top: 10px;
-    }
-
-    .nav-item {
-        width: 100%;
-        border-bottom: 1px solid #eee; /* خط بسيط يفصل بينهم */
-        padding-bottom: 5px;
-    }
-}/* التصميم الأساسي للـ Navbar */
+/* التصميم الأساسي للـ Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #111; /* أو اللون اللي تحبه */
-    height: 70px; /* ارتفاع ثابت عشان ما تفرشش منك */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
 }
 
-/* التعديل الخاص بالموبايل (Media Query) */
+/* الكود الخاص بالتجاوب */
 @media (max-width: 768px) {
-    .navbar {
-        height: 60px; /* تصغير الارتفاع في الموبايل */
-        padding: 0.5rem 1rem;
-    }
+  .navbar {
+    flex-direction: column; /* تحويل القائمة لوضع عمودي */
+    align-items: flex-start;
+  }
 
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 60px;
-        flex-direction: column;
-        background-color: #111;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-    }
+  .nav-links {
+    display: none; /* إخفاء الروابط لإظهارها عند الضغط على زر القائمة */
+    width: 100%;
+  }
 
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-item {
-        margin: 2.5rem 0;
-    }
+  .nav-links.active {
+    display: block;
+  }
 }
