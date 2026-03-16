@@ -537,3 +537,26 @@ header {
     margin-right: 8px;
     font-size: 14px;
 }
+/* تنسيقات الموبايل - الشاشات اللي أصغر من 768px */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* بيخلي العناصر تحت بعض بدل جنب بعض */
+        padding: 10px;
+        height: auto; /* عشان الـ div ياخد مساحة العناصر اللي جواه */
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 15px; /* مسافة بين اللينكات عشان ما يلزقوش في بعض */
+        margin-top: 10px;
+    }
+
+    .nav-item {
+        width: 100%;
+        border-bottom: 1px solid #eee; /* خط بسيط يفصل بينهم */
+        padding-bottom: 5px;
+    }
+}
