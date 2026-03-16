@@ -559,4 +559,43 @@ header {
         border-bottom: 1px solid #eee; /* خط بسيط يفصل بينهم */
         padding-bottom: 5px;
     }
+}/* التصميم الأساسي للـ Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #111; /* أو اللون اللي تحبه */
+    height: 70px; /* ارتفاع ثابت عشان ما تفرشش منك */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* التعديل الخاص بالموبايل (Media Query) */
+@media (max-width: 768px) {
+    .navbar {
+        height: 60px; /* تصغير الارتفاع في الموبايل */
+        padding: 0.5rem 1rem;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        flex-direction: column;
+        background-color: #111;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 2.5rem 0;
+    }
 }
