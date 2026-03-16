@@ -1,0 +1,539 @@
+/* تنسيقات عامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* شريط التنقل Navbar */
+header {
+    background: #fff;
+    padding: 20px 10%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.2vh;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+}
+
+.logo span {
+    color: #ff4757; /* لون تمييز للوجو */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+/* تنسيق الروابط الذي سألت عنه */
+.nav-links li a {
+    text-decoration: none;
+    color: #2f3542;
+    font-weight: 500;
+    transition: 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links li a:hover {
+    color: #ff4757;
+}
+
+/* تأثير الخط السفلي عند التمرير */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    right: 0;
+    background-color: #ff4757;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* زر اتصل بنا في الناف بار */
+.cta-button {
+    background: #ff4757;
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 25px;
+}
+
+.cta-button:hover {
+    background: #2f3542;
+}
+
+/* قسم الـ Hero */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), 
+                url('https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.hero-content span {
+    color: #ff4757;
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 40px;
+    background: #2f3542;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+/* تنسيق قسم البورتفوليو */
+.portfolio-section {
+    padding: 100px 10%;
+    background-color: #fff;
+    text-align: center;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #2f3542;
+}
+
+.section-title p {
+    color: #777;
+    margin-bottom: 50px;
+}
+
+/* شبكة الصور */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* لجعله متجاوب مع الشاشات */
+    gap: 20px;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    height: 350px;
+    cursor: pointer;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* تأثير التظليل عند الوقوف بالماوس */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 71, 87, 0.9); /* اللون الأحمر الخاص بـ AMA */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.5s ease;
+}
+
+.portfolio-item:hover .overlay {
+    opacity: 1;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1); /* تكبير بسيط للصورة */
+}
+
+.overlay .text {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    transform: translateY(20px);
+    transition: 0.5s ease;
+}
+
+.overlay span {
+    color: #f1f1f1;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.portfolio-item:hover .overlay .text {
+    transform: translateY(0);
+}
+/* تنسيق اللوجو */
+.logo img {
+    height: 50px;      /* يمكنك تكبير أو تصغير الرقم حسب شكل اللوجو */
+    width: auto;       /* للحفاظ على أبعاد اللوجو دون تمطيطه */
+    display: block;    /* لإزالة أي مسافات غريبة أسفل الصورة */
+    transition: 0.3s;  /* لجعل أي تأثير حركي ناعم */
+}
+
+/* تأثير بسيط عند تمرير الماوس على اللوجو */
+.logo img:hover {
+    transform: scale(1.05); /* تكبير خفيف جداً يعطي لمسة احترافية */
+}
+
+/* تعديل الناف بار ليتناسب مع اللوجو */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0; /* تقليل البادينج ليناسب حجم الصورة */
+}
+/* تنسيق قسم الخدمات */
+.services-section {
+    padding: 80px 10%;
+    background-color: #fcfcfc;
+    text-align: center;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* تنسيق الكارت الواحد */
+.service-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.4s ease;
+    border-bottom: 4px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-bottom: 4px solid #ff4757; /* لون AMA الأحمر */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* تنسيق الأيقونات */
+.icon-box {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 71, 87, 0.1); /* خلفية باهتة للأيقونة */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: 0.4s;
+}
+
+.icon-box i {
+    font-size: 30px;
+    color: #ff4757;
+}
+
+/* تغيير لون الأيقونة عند الوقوف على الكارت */
+.service-card:hover .icon-box {
+    background: #ff4757;
+}
+
+.service-card:hover .icon-box i {
+    color: #fff;
+}
+
+.service-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #2f3542;
+}
+
+.service-card p {
+    font-size: 15px;
+    color: #777;
+    line-height: 1.6;
+}
+/* تنسيق زر الواتساب العائم */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 30px; /* أو right حسب رغبتك */
+    background-color: #25d366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 10000;
+    transition: 0.3s;
+}
+
+.whatsapp-btn i {
+    font-size: 25px;
+    margin-left: 10px; /* مسافة بين الأيقونة والنص */
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    background-color: #128c7e;
+    color: #fff;
+}
+
+/* إخفاء النص في الشاشات الصغيرة وترك الأيقونة فقط */
+@media (max-width: 768px) {
+    .whatsapp-btn span {
+        display: none;
+    }
+    .whatsapp-btn {
+        padding: 15px;
+        border-radius: 50%;
+    }
+    .whatsapp-btn i {
+        margin-left: 0;
+    }
+}
+/* تنسيق قسم التواصل */
+.contact-section {
+    padding: 100px 10%;
+    background-color: #fff;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+/* الجزء الخاص بالمعلومات */
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.info-item i {
+    width: 50px;
+    height: 50px;
+    background: #ff4757;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.info-item h3 {
+    font-size: 18px;
+    color: #2f3542;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    color: #777;
+}
+
+/* أيقونات السوشيال ميديا */
+.social-links {
+    margin-top: 40px;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #2f3542;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    background: #ff4757;
+    transform: translateY(-5px);
+}
+
+/* تنسيق الفورم */
+.contact-form {
+    flex: 1.5;
+    min-width: 300px;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #f9f9f9;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group {
+    display: flex;
+    gap: 20px;
+}
+
+/* .contact-form input:focus, 
+.contact-form textarea:focus {
+    border-color: #ff4757;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(255, 71, 87, 0.1);
+} */
+
+/* .submit-btn {
+    background: #ff4757;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+} */
+
+/* .submit-btn:hover {
+    background: #2f3542;
+    letter-spacing: 1px;
+} */
+
+/* استجابة الموبايل */
+@media (max-width: 768px) {
+    .input-group {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+.main-footer {
+    background: #1e2229; /* لون داكن فخم */
+    color: white;
+    padding: 40px 10%;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.footer-logo span {
+    color: #ff4757;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social a {
+    color: white;
+    font-size: 20px;
+    transition: 0.3s;
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    background: #ff4757;
+    border-color: #ff4757;
+    transform: translateY(-3px);
+}
+.view-all-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 30px;
+    color: #ff4757; /* اللون الأحمر الخاص بك */
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #ff4757;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.view-all-link:hover {
+    background-color: #ff4757;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
+}
+
+.view-all-link i {
+    margin-right: 8px;
+    font-size: 14px;
+}

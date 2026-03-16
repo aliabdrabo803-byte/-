@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض أعمال AMA الكامل</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Cairo', sans-serif; background: #f4f4f4; padding: 50px 10%; text-align: center; margin: 0; }
+        .back-home { text-decoration: none; color: #ff4757; font-weight: bold; display: inline-block; margin-bottom: 30px; border: 1px solid #ff4757; padding: 10px 20px; border-radius: 25px; transition: 0.3s; }
+        .back-home:hover { background: #ff4757; color: white; }
+        
+        h1 { color: #2f3542; }
+        
+        /* شبكة الصور */
+        .full-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .full-gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            cursor: zoom-in;
+            transition: 0.4s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .full-gallery img:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+
+        /* نافذة التكبير (Lightbox) */
+        .lightbox {
+            display: none; /* مخفي افتراضياً */
+            position: fixed;
+            z-index: 9999;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255,255,255,0.1);
+            transform: scale(0.8);
+            transition: 0.3s ease-in-out;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox.active img { transform: scale(1); }
+
+        /* زر الإغلاق */
+        .close-lightbox {
+            position: absolute;
+            top: 30px; right: 40px;
+            color: white;
+            font-size: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .close-lightbox:hover { color: #ff4757; }
+        
+/* شريط التنقل Navbar */
+header {
+    background: #fff;
+    padding: 20px 10%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.2vh;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+}
+
+.logo span {
+    color: #ff4757; /* لون تمييز للوجو */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+/* تنسيق الروابط الذي سألت عنه */
+.nav-links li a {
+    text-decoration: none;
+    color: #2f3542;
+    font-weight: 500;
+    transition: 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links li a:hover {
+    color: #ff4757;
+}
+
+/* تأثير الخط السفلي عند التمرير */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    right: 0;
+    background-color: #ff4757;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* زر اتصل بنا في الناف بار */
+.cta-button {
+    background: #ff4757;
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 25px;
+}
+
+.cta-button:hover {
+    background: #2f3542;
+}
+    </style>
+</head>
+<body>
+     <!-- <header>
+        <nav class="navbar">
+            <div class="logo"><div class="logo">
+    <a href="index.html">
+        <img src="Designer (4).png" alt="AMA Logo" id="navbar-logo">
+    </a>
+</div></div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                  <li><a href="#portfolio">أعمالنا</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                 <li><a href="all-projects.html">معرضنا</a></li>
+                <li><a href="#contact" class="cta-button">اتصل بنا</a></li>
+                <li><a href="https://wa.me/201274294509" class="cta-button" target="_blank">واتساب</a></li>
+            </ul>
+        </nav>
+    </header> -->
+
+    <a href="index.html" class="back-home"><i class="fas fa-arrow-right"></i> العودة للرئيسية</a>
+    
+    <h1>معرض الإبداع الكامل</h1>
+    
+
+    <div class="full-gallery">
+        <img src="baby .jpg" alt="Work 1">
+        <img src="menue.jpg" alt="Work 2">
+        <img src="nike .jpg" alt="Work 3">
+        <img src="perfum..jpg" alt="Work 4">
+        <img src="poster.jpg" alt="Work 5">
+        <img src="shose.jpg" alt="Work 6">
+        <img src="smart watch.6.jpg" alt="Work 7">
+        <img src="carrrr.jpg" alt="Work 8">
+        <img src="برفان -2.jpg" alt="Work 9">
+        <!-- <img src="" alt="Work 10">
+        <img src="" alt="Work 11">
+        <img src="" alt="Work 12"> -->
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <span class="close-lightbox" id="closeLightbox">&times;</span>
+        <img src="" alt="Zoomed Work" id="lightboxImg">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const images = document.querySelectorAll('.full-gallery img');
+        const closeBtn = document.getElementById('closeLightbox');
+
+        // عند الضغط على أي صورة
+        images.forEach(image => {
+            image.addEventListener('click', () => {
+                lightbox.classList.add('active');
+                lightboxImg.src = image.src; // نقل رابط الصورة للنافذة الكبيرة
+            });
+        });
+
+        // عند الضغط على زر الإغلاق
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        // إغلاق عند الضغط في أي مكان خارج الصورة
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg) {
+                lightbox.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
