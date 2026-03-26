@@ -542,10 +542,11 @@ header {
         margin-left: 0; /* إلغاء المارجن القديم */
     }
 
-    /* يمكنك إضافة زر الهامبرجر في الـ HTML واستخدام هذا التنسيق */
+ 
     .menu-toggle {
         display: block;
         cursor: pointer;
         font-size: 24px;
     }
 }
+/* this is comment  */
